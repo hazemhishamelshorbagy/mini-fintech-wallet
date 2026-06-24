@@ -1,8 +1,8 @@
 const express = require('express');
-const { getAccounts,getAccountById,createAccount,getCreateAccountPage } = require('../controllers/acountsController');
+const { getWallets, getWalletById, createWallet, getCreateWalletPage } = require('../controllers/acountsController');
 const router = express.Router();
-router.get('/accounts', getAccounts);
-router.get('/accountsdetail/:id', getAccountById);
-router.post('/createaccount', createAccount);
-router.get('/createaccount', getCreateAccountPage);
+router.get('/viewwallets', getWallets);
+router.get('/walletdetails/:id', getWalletById);
+router.post('/createwallet', createWallet);
+router.get('/createwallet', getCreateWalletPage);
 module.exports = router;

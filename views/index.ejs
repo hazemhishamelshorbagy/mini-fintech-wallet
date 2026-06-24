@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Accounts</title>
+    <title>FastPay | Mini Wallet</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    
+    <%- include('partials/header') %>
+    <main class="container">
+      <section class="hero-grid">
+        <div>
+          <p class="eyebrow">FastPay</p>
+          <h1 class="page-title">A faster mini wallet experience for transfers, wallets, and history.</h1>
+          <p class="subtitle">Manage wallets, submit transfers, and review transaction history with a clean, modern FastPay interface.</p>
+          <div class="page-actions">
+            <a href="/viewwallets" class="button">View Wallets</a>
+            <a href="/createtransfer" class="button">Create Transfer</a>
+            <a href="/transactionhistory" class="button">View History</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>FastPay overview</h2>
+          <p>Everything stays the same under the hood — your wallet and transfer logic are untouched. This release only refreshes the UI with a premium dark banking theme.</p>
+          <ul class="summary-list">
+            <li><strong>Brand new styling.</strong> More polished tables, cards, buttons, and spacing.</li>
+            <li><strong>Better readability.</strong> Clear labels, strong contrast, and friendly form layout.</li>
+            <li><strong>FastPay identity.</strong> A modern financial dashboard feel without changing features.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
 </body>
 </html>

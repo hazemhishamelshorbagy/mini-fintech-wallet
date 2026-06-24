@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallets | FastPay</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main class="container">
+      <section class="card">
+        <div class="page-header">
+          <h1 class="page-title">Wallets</h1>
+          <p class="subtitle">Your FastPay wallets at a glance.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Balance</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% wallets.forEach(wallet => { %>
+                <tr>
+                  <td><%= wallet.id %></td>
+                  <td><%= wallet.customerName %></td>
+                  <td>$<%= wallet.balance %></td>
+                  <td><%= wallet.status %></td>
+                  <td><a class="button" href="/walletdetails/<%= wallet.id %>">View Details</a></td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <div class="page-actions">
+          <a class="button" href="/createwallet">Create New Wallet</a>
+          <a class="button" href="/transactionhistory">Transaction History</a>
+        </div>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>

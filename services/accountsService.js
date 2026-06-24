@@ -1,20 +1,20 @@
 const accounts = require('../data/accounts');
 
-const getAllAccounts = () => {
+const getAllWallets = () => {
   return accounts;
 };
-const getAccountById=(accountId)=>{
-  return accounts.find(account => account.id === accountId);
+const getWalletById=(walletId)=>{
+  return accounts.find(wallet => wallet.id === walletId);
 }
-const createAccount = ({customerName}) => {
-  // Implementation for creating a new account
-  const newAccount = {
+const createWallet = ({customerName}) => {
+  // Implementation for creating a new wallet
+  const newWallet = {
     id: accounts.length + 1,
     balance: 0,
     status: "ACTIVE",
     customerName
   };
-  accounts.push(newAccount);
-  return newAccount;
+  accounts.push(newWallet);
+  return newWallet;
 };
-module.exports = { getAllAccounts, getAccountById, createAccount };
+module.exports = { getAllWallets, getWalletById, createWallet };

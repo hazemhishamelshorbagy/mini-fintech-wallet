@@ -1,12 +1,14 @@
 <header class="site-header">
-  <div class="site-header__inner">
+  <div class="site-header__inner container">
     <div class="site-branding">
-      <strong>BankOps</strong>
+      <strong>Fast<span>Pay</span></strong>
     </div>
     <nav>
       <ul class="site-nav">
         <li><a href="/" class="<%= currentPath === '/' ? 'active' : '' %>">Home</a></li>
-        <li><a href="/accounts" class="<%= currentPath === '/accounts' ? 'active' : '' %>">Accounts</a></li>
+        <li><a href="/viewwallets" class="<%= currentPath === '/viewwallets' || (currentPath && currentPath.startsWith('/walletdetails')) ? 'active' : '' %>">Wallets</a></li>
+        <li><a href="/transactionhistory" class="<%= currentPath === '/transactionhistory' || (currentPath && currentPath.startsWith('/transactionDetail')) ? 'active' : '' %>">History</a></li>
+        <li><a href="/createtransfer" class="<%= currentPath === '/createtransfer' ? 'active' : '' %>">Transfer</a></li>
       </ul>
     </nav>
   </div>

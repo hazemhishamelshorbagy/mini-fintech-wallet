@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History | FastPay</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main class="container">
+      <section class="card">
+        <div class="page-header">
+          <h1 class="page-title">Transaction History</h1>
+          <p class="subtitle">Track completed transfers and view details for each transaction.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Transaction ID</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% transactions.forEach(transaction => { %>
+                <tr>
+                  <td><%= transaction.id %></td>
+                  <td><%= transaction.fromAccountId %></td>
+                  <td><%= transaction.toAccountId %></td>
+                  <td>$<%= transaction.amount %></td>
+                  <td><%= transaction.createdAt %></td>
+                  <td><a class="button" href="/transactionDetail/<%= transaction.id %>">View Details</a></td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+        <div class="page-actions">
+          <a class="button" href="/viewwallets">Back To Wallets</a>
+          <a class="button" href="/createtransfer">New Transfer</a>
+        </div>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>

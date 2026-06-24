@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Details | FastPay</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main class="container">
+      <section class="card">
+        <div class="page-header">
+          <h1 class="page-title">Transaction Details</h1>
+          <p class="subtitle">Detailed summary for transaction #<%= transaction.id %>.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <tbody>
+              <tr>
+                <th>Transaction ID</th>
+                <td><%= transaction.id %></td>
+              </tr>
+              <tr>
+                <th>From Account</th>
+                <td><%= transaction.fromAccountId %></td>
+              </tr>
+              <tr>
+                <th>To Account</th>
+                <td><%= transaction.toAccountId %></td>
+              </tr>
+              <tr>
+                <th>Amount</th>
+                <td>$<%= transaction.amount %></td>
+              </tr>
+              <tr>
+                <th>Date</th>
+                <td><%= transaction.createdAt %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="page-actions">
+          <a class="button" href="/transactionhistory">Back To History</a>
+          <a class="button" href="/viewwallets">Back To Wallets</a>
+        </div>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>

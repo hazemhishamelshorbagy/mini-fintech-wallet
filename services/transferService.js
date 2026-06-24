@@ -40,5 +40,27 @@ const createTransfer = ({ fromAccountId, toAccountId, amount }) => {
     transfers.push(transfer);
     return transfer;
 }
+const getTransactions = () => {
+    try {
+        return transfers;
+    } catch (error) {
+        throw new Error("Error retrieving transactions: " + error.message);
+    }
+ 
+}
+const getTransferById = (id) => {
+    const transaction = transfers.find(t => t.id === parseInt(id)); 
+    if (!transaction) {
+        throw new Error("Transaction not found");
+    }
+    return transaction;
+}
+    
+    
 
-module.exports = { createTransfer };
+
+
+
+
+
+module.exports = { createTransfer, getTransactions,getTransferById };

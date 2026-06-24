@@ -1,10 +1,10 @@
 const accountService = require("../services/accountsService");
-const getAccounts = (req, res) => {
+const getWallets = (req, res) => {
   try {
-    const accounts = accountService.getAllAccounts();
-    res.render("accounts", {
-      title: "Accounts List",
-      accounts,
+    const wallets = accountService.getAllWallets();
+    res.render("viewwallets", {
+      title: "Wallets List",
+      wallets,
       currentPath: req.path,
     });
   } catch (error) {
@@ -12,45 +12,49 @@ const getAccounts = (req, res) => {
   }
 };
 
-const getAccountById = (req, res) => {
+const getWalletById = (req, res) => {
   try {
-    const accountId = Number(req.params.id);
-    const account = accountService.getAccountById(accountId);
-    if (!account) {
-      return res.status(404).json({ message: "Account not found" });
+    const walletId = Number(req.params.id);
+    const wallet = accountService.getWalletById(walletId);
+    if (!wallet) {
+      return res.status(404).json({ message: "Wallet not found" });
     }
-    res.render("accountsdetail", {
-      title: "Account Details",
-      account,
+    res.render("walletdetails", {
+      title: "Wallet Details",
+      wallet,
       currentPath: req.path,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
-const getCreateAccountPage = (req, res) => {
-  res.render('createAccount', {
-    title: 'Create Account'
+
+const getCreateWalletPage = (req, res) => {
+  res.render('createwallet', {
+    title: 'Create Wallet',
+    formData: {
+      customerName: ''
+    }
   });
 };
-const createAccount = (req, res) => {
-  console.log('Creating a new account with data:', req.body);
+const createWallet = (req, res) => {
+
   try {
 
     const customerName = req.body.customerName?.trim();
 
     if (!customerName) {
-      return res.status(400).render('createAccount', {
-        title: 'Create Account',
+      return res.status(400).render('createwallet', {
+        title: 'Create Wallet',
         error: 'Customer name is required'
       });
     }
 
-    accountService.createAccount({
+    accountService.createWallet({
       customerName
     });
 
-    res.redirect('/accounts');
+    res.redirect('/viewwallets');
 
   } catch (error) {
 
@@ -61,4 +65,4 @@ const createAccount = (req, res) => {
 
 
 
-module.exports = { getAccounts, getAccountById, createAccount, getCreateAccountPage };
+module.exports = { getWallets, getWalletById, createWallet, getCreateWalletPage };
